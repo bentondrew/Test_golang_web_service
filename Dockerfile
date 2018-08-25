@@ -1,6 +1,5 @@
 FROM golang:alpine as builder
-RUN addgroup gouser && \
-    adduser -D -g '' gouser
+RUN adduser -D -g '' gouser
 COPY source/ $GOPATH/src/test_package/test_app
 WORKDIR $GOPATH/src/test_package/test_app
 RUN go get -d -v
