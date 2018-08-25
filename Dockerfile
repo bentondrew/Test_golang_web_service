@@ -8,6 +8,6 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -ldflag
 FROM scratch
 LABEL maintainer="Benton Drew <benton.s.drew@drewantech.com>"
 COPY --from=builder /etc/passwd /etc/passwd
-COPY --from=builder /go/bin/wiki /wiki
+COPY --from=builder --chown=gouser /go/bin/ /test_package/test_app/
 USER gouser
-ENTRYPOINT ["/wiki"]
+ENTRYPOINT ["/test_package/test_app//wiki"]
