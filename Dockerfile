@@ -12,4 +12,5 @@ COPY --from=builder /etc/group /etc/group
 COPY --chown=gouser --from=builder /go/bin/ /test_package/test_app/
 USER gouser
 WORKDIR /test_package/test_app/
+EXPOSE 8080
 ENTRYPOINT ["/test_package/test_app/wiki"]
