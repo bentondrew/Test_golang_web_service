@@ -1,4 +1,4 @@
-FROM golang:alpine as builder
+FROM golang:1.11.0-alpine3.8 as builder
 RUN adduser -D -g '' gouser
 COPY source/ $GOPATH/src/test_package/test_app
 WORKDIR $GOPATH/src/test_package/test_app
